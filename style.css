@@ -1,0 +1,77 @@
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* utilities */
+.d-none{
+    display: none;
+}
+
+/* Header */
+header{
+    height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    margin:0 20px;
+}
+
+button{
+    padding: 0px 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: lightgray;
+}
+
+/* Grid */
+#section-background{
+    background-color: #7FFFD4;
+
+}
+
+
+#section-container{
+    max-width: 800px;
+    padding-top: 50px;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+#grid{
+    height: 800px;
+    width: 800px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+}
+
+.cell{
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    border: 1px solid white;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell.clicked{
+    background-color: dodgerblue;
+}
