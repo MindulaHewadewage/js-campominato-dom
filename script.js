@@ -13,6 +13,7 @@ const playButton = document.getElementById('play-button');
 const resetButton = document.getElementById('reset-button');
 const sectionBackground = document.getElementById('section-background');
 const grid = document.getElementById('grid'); 
+const scoreDisplay = document.getElementById('score-display')
 
 // struttura della griglia
 const rows = 10;
@@ -33,6 +34,9 @@ playButton.addEventListener('click', function (){
     // levo il display none 
     sectionBackground.classList.remove('d-none');
 
+
+    let score = 0;
+
     // si riportano le celle in pagina
     for(let i = 1; i < totalCells + 1; i++){
 
@@ -42,11 +46,24 @@ playButton.addEventListener('click', function (){
 
         // Event listener alla cella
         cell.addEventListener('click' , function (){
+            // Controllo se è stata gia cliccata
+            if(cell.classList.contains('clicked')) {
+            return;
+            }
+            
+            // quando viene cliccato cambia colore
             cell.classList.add('clicked');
+
+            scoreDisplay.innerText = ++score ;            
         })
 
         // appendo in pagina
         grid.appendChild(cell);
     }
+
+
+  
+
+
 
 })
