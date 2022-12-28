@@ -6,6 +6,26 @@ function createCell(number){
     return cell;
 }
 
+// funzione per creare bombe
+
+function generateBomb(maxNumber, totalCells){
+
+    const bomb = [];
+
+    // deve raggiungere 16
+    while(totalBombs.lenght < totalCells){
+        let random;
+
+        do{
+            random = Math.floor(Math.random()* totalCells)+1;
+        }while (totalBombs.includes(random));
+
+        Bombs.push(random);
+    }
+
+    return bombs;
+}
+
 
 
 // Prendo gli elementi dal DOM
@@ -19,6 +39,7 @@ const scoreDisplay = document.getElementById('score-display')
 const rows = 10;
 const cols = 10;
 const totalCells = rows * cols;
+const totalBombs = 16;
 
 // Aggancio il bottone reset
 resetButton.addEventListener('click', function(){
@@ -54,6 +75,7 @@ playButton.addEventListener('click', function (){
             // quando viene cliccato cambia colore
             cell.classList.add('clicked');
 
+            // risultato in pagina
             scoreDisplay.innerText = ++score ;            
         })
 
