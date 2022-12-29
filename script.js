@@ -29,6 +29,17 @@ function generateBomb(totalCells, totalBombs){
 }
 
 
+let isGameOver = false;
+
+// funzione per il game over
+
+function gameOver(score, hasItBomb){
+    const message = hasItBomb ? `Hai perso! Punti ottenuti : ${score}` : `Hai vinto! Punti Ottenuti : ${score}`;
+    alert(message);
+    isGameOver = true;
+}
+
+
 
 
 
@@ -84,8 +95,21 @@ playButton.addEventListener('click', function (){
             // quando viene cliccato cambia colore
             cell.classList.add('clicked');
 
-            // risultato in pagina
-            scoreDisplay.innerText = ++score ;            
+            // controllo se ho beccato una bomba
+            const hasItBomb = bombs.includes(parseInt(cell.innerText));
+            console.log(hasItBomb);
+
+            if(hasItBomb){
+                cell.classList.add('bomb');
+
+
+            }else {
+
+                // risultato in pagina
+                scoreDisplay.innerText = ++score ; 
+
+            }
+                     
         })
 
         // appendo in pagina
