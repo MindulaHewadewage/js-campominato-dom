@@ -6,25 +6,30 @@ function createCell(number){
     return cell;
 }
 
+// bombe totali
+const totalBombs = 16;
+
 // funzione per creare bombe
+function generateBomb(totalCells, totalBombs){
 
-function generateBomb(maxNumber, totalCells){
-
-    const bomb = [];
+    const bombs = [];
 
     // deve raggiungere 16
-    while(totalBombs.lenght < totalCells){
+    while(bombs.length < totalBombs){
         let random;
 
         do{
             random = Math.floor(Math.random()* totalCells)+1;
-        }while (totalBombs.includes(random));
+        }while (bombs.includes(random));
 
-        Bombs.push(random);
+        bombs.push(random);
     }
 
     return bombs;
 }
+
+
+
 
 
 
@@ -39,7 +44,11 @@ const scoreDisplay = document.getElementById('score-display')
 const rows = 10;
 const cols = 10;
 const totalCells = rows * cols;
-const totalBombs = 16;
+
+// genero le bombe
+const bombs = generateBomb(totalCells, totalBombs);
+console.log(bombs);
+
 
 // Aggancio il bottone reset
 resetButton.addEventListener('click', function(){
@@ -55,7 +64,7 @@ playButton.addEventListener('click', function (){
     // levo il display none 
     sectionBackground.classList.remove('d-none');
 
-
+    // azzero il contatore
     let score = 0;
 
     // si riportano le celle in pagina
